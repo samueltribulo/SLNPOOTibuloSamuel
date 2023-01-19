@@ -37,9 +37,10 @@
             this.textBoxCapacidad = new System.Windows.Forms.TextBox();
             this.textBoxDenominacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxId = new System.Windows.Forms.TextBox();
             this.labelId = new System.Windows.Forms.Label();
+            this.numericUpDownId = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownId)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -58,6 +59,7 @@
             this.btnEliminarAvion.TabIndex = 1;
             this.btnEliminarAvion.Text = "Eliminar avión";
             this.btnEliminarAvion.UseVisualStyleBackColor = true;
+            this.btnEliminarAvion.Click += new System.EventHandler(this.btnEliminarAvion_Click);
             // 
             // btnModificar
             // 
@@ -67,6 +69,7 @@
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar avión";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregarAvion
             // 
@@ -86,6 +89,7 @@
             this.btnBuscarPorId.TabIndex = 4;
             this.btnBuscarPorId.Text = "Buscar por id";
             this.btnBuscarPorId.UseVisualStyleBackColor = true;
+            this.btnBuscarPorId.Click += new System.EventHandler(this.btnBuscarPorId_Click);
             // 
             // labelCapacidad
             // 
@@ -119,13 +123,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Denominación";
             // 
-            // textBoxId
-            // 
-            this.textBoxId.Location = new System.Drawing.Point(150, 160);
-            this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(100, 20);
-            this.textBoxId.TabIndex = 9;
-            // 
             // labelId
             // 
             this.labelId.AutoSize = true;
@@ -135,13 +132,20 @@
             this.labelId.TabIndex = 10;
             this.labelId.Text = "Id";
             // 
+            // numericUpDownId
+            // 
+            this.numericUpDownId.Location = new System.Drawing.Point(150, 165);
+            this.numericUpDownId.Name = "numericUpDownId";
+            this.numericUpDownId.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownId.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numericUpDownId);
             this.Controls.Add(this.labelId);
-            this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxDenominacion);
             this.Controls.Add(this.textBoxCapacidad);
@@ -155,6 +159,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,8 +176,8 @@
         private System.Windows.Forms.TextBox textBoxCapacidad;
         private System.Windows.Forms.TextBox textBoxDenominacion;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label labelId;
+        private System.Windows.Forms.NumericUpDown numericUpDownId;
     }
 }
 

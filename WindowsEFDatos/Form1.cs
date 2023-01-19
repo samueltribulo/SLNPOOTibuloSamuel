@@ -49,5 +49,35 @@ namespace WindowsEFDatos
             GridRefresh();
 
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            LineaAerea lineaAerea = new LineaAerea() { FechaInicioActividades = new DateTime(1999, 11, 11), Nombre = "Fly Bondi" };
+
+            AbmLineaAerea.Insertar(lineaAerea);
+
+            MessageBox.Show(AbmAvion.Editar(Convert.ToInt32(numericUpDownId.Value), Convert.ToDouble(textBoxCapacidad.Text), textBoxDenominacion.Text, lineaAerea.IdLinea) > 0 ? "Avión editado correctamente" : "Ocurrio un error");
+
+
+            GridRefresh();
+        }
+
+        private void btnEliminarAvion_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show( AbmAvion.Eliminar(Convert.ToInt32(numericUpDownId.Value)) > 0 ? "Avión eliminado correctamente" : "Ocurrio un error" );
+
+            GridRefresh();
+        }
+
+        private void btnBuscarPorId_Click(object sender, EventArgs e){
+
+            var Avion = AbmAvion.TraerPorId(Convert.ToInt32(numericUpDownId.Value));
+
+            if (Avion.Count() == 0) MessageBox.Show("Ocurrio un error");
+            else dataGridView1.DataSource = Avion;
+
+
+        }
     }
 }

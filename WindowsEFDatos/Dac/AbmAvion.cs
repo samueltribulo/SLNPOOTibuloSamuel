@@ -41,6 +41,54 @@ namespace WindowsEFDatos.Dac
 
         }
 
+        public static int Editar(int id, double capacidad, string denominacion, int lineaAereaId)
+        {
+
+            try
+            {
+
+                Avion AvionOrigen = context.Aviones.Where(Av => Av.IdAvion == id).FirstOrDefault();
+                AvionOrigen.Capacidad = capacidad;
+                AvionOrigen.Denominacion = denominacion;
+                AvionOrigen.LineaAerea_Id = lineaAereaId;
+                context.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static int Eliminar(int id)
+        {
+            try
+            {
+
+                Avion AvionOrigen = context.Aviones.Remove(context.Aviones.Single( av => av.IdAvion == id));
+                context.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static List<Avion> TraerPorId(int id)
+        {
+
+                List<Avion> Avion = context.Aviones.Where(av => av.IdAvion == id).ToList();
+
+                return Avion;
+
+        }
 
     }
 }
